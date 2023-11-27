@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block main-content %}
+
+<nav class="navbar navbar-dark bg-dark mt-3" style="box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;border-radius:5px; border: 1px solid white;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="https://cdn-icons-png.flaticon.com/128/3082/3082011.png" height="40px" width="40px" style="float: left;" ><h4 style="margin-top:15px; font-family: Cursive; font-size: 16px;">Samaykart</h4></a>
+      <button style="color: white; margin-left: 100px; background: none; border-radius: 100px; border: 1px solid white;" >{{count}}</button>
+      <img src="https://cdn-icons-png.flaticon.com/128/2587/2587501.png" height="40px" width="40px">
+      <h1 style="color: white;">{{total_prices}}</h1>
+      
+    </div>
+  </nav>
+{% for i in cdt %}
+    <div style="height: 100px; width: 300px; background: white; margin-top: 10px; border-radius: 10px; float: left;">
+    <img  src="{{i.item.imges.url}}" height="100px" width="100px" style=" float: left;">
+    <div style="  float: left; background:; height: 30px; width: 100px; text-align: center; margin-top: 5px;" >{{i.item.pname}}</div>
+    <div style="height: 30px; width: 75px; background: ; float: left; margin-top: 10px;"><b style="color: green; margin-top: 15px;">Rs {{i.item.price}}</b></div>
+    <form action="/action_page.php">
+      
+      <select style="margin-top: 25px;margin-left: 15px; float: left;">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      
+    </form>
+    <button type="button" class="btn btn-warning" style="color: white; margin-top: 15px; margin-left: 10px;">GET</button></a>
+    <a href="deletecart?id={{i.id}}"><button type="button" class="btn btn-danger" style="color: white; margin-top: 15px;">delete</button></a>
+    <br>
+    </div>
+
+{% endfor %}
+
+<h4 style="color:white;margin-top:125px;">TOTAL AMOUNT = {{total_amount}}</h4>
+{% endblock main-content %}
